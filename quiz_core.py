@@ -33,12 +33,14 @@ class QuizCore:
             return True
 
     def checkTrue(self):
-        if self.answer == True:
+        print(self.answer)
+        if self.answer == "True":
             self.score += 1
+
         self.nextQuestion()
 
     def checkFalse(self):
-        if self.answer == False:
+        if self.answer == "False":
             self.score += 1
         self.nextQuestion()
 
