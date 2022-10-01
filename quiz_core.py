@@ -1,17 +1,13 @@
 import requests
 import time
 
-
-
-CATEGORIES = ["general knowledge","books","film","music","musicals & theatres","television", "videogames", "board games", "science & nature", "IT", "mythology", "sports", "geography", "politics", "art",
-              "celebrities", "animals", "vehicles", "comics", "gadgets", "manga & anime", "cartoon & animations"]
-
 class QuizCore:
-    def __init__(self):
-        self.category_list = CATEGORIES
-        self.my_category = 11
+    def __init__(self, category):
+        self.my_category = 9 + int(category[0])
+        print(self.my_category)
         self.counter = 0
-        self.questionbank = requests.get('https://opentdb.com/api.php', params={"amount" : 10, "category" : self.my_category, "type" : "boolean"}).json()["results"]
+        self.questionbank = requests.get('https://opentdb.com/api.php', params={"amount" : 10, "category" : self.my_category, "type" : "boolean"})
+        self.questionbank = self.questionbank.json()["results"]
         self.question_list = self.questionbank
         self.answer = self.question_list[0]["correct_answer"]
         self.question = self.question_list[0]["question"]
@@ -20,7 +16,7 @@ class QuizCore:
 
 
     def nextQuestion(self):
-        if self.counter == 10:
+        if self.counter == 9:
             self.is_empty = True
 
         else:
@@ -33,10 +29,8 @@ class QuizCore:
             return True
 
     def checkTrue(self):
-        print(self.answer)
         if self.answer == "True":
             self.score += 1
-
         self.nextQuestion()
 
     def checkFalse(self):
