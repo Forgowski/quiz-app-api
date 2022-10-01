@@ -2,9 +2,9 @@ from quiz_core import QuizCore
 from tkinter import *
 import html
 
-CATEGORIES = {"general knowledge" : 0,"books": 1,"film" : 2,"music" : 3,"musicals & theatres" :4,"television" :5, "videogames" :6, "board games" :7, "science & nature" :8,
-                "IT" :9, "mythology" :10, "sports" :11, "geography" :12, "politics" :13, "art" :14,
-              "celebrities" :15, "animals" :16, "vehicles" :17, "comics" :18, "gadgets" :19}
+CATEGORIES = {"general knowledge" : 0, "film" : 2, "music" : 3, "television" : 5, "videogames" : 6, "science & nature" : 8,
+                "IT" : 9, "mythology" : 10, "sports" : 11, "geography" : 12, "politics" : 13, "art" : 14,
+              "celebrities" : 15, "comics" : 18, "gadgets" : 19}
 
 class Ui:
     def __init__(self):
@@ -73,14 +73,17 @@ class Ui:
 
 
     def loadListBox(self):
-        work_in_progress_lis = [1, 4, 7, 16, 17]
         for i in CATEGORIES:
             self.list_box.insert(END,i)
+
         self.list_box.grid(column=0, row=0)
 
 
     def getSelected(self):
        category = self.list_box.curselection()
+       holder = list(CATEGORIES)
+       holder = holder[category[0]]
+       category = CATEGORIES[holder]
        self.start(category)
 
 

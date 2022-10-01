@@ -3,7 +3,7 @@ import time
 
 class QuizCore:
     def __init__(self, category):
-        self.my_category = 9 + int(category[0])
+        self.my_category = 9 + category
         print(self.my_category)
         self.counter = 0
         self.questionbank = requests.get('https://opentdb.com/api.php', params={"amount" : 10, "category" : self.my_category, "type" : "boolean"})
