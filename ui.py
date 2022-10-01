@@ -13,6 +13,7 @@ class Ui:
         self.window.title("Quiz")
 
         self.list_box = Listbox(self.window)
+        self.list_box.config(height=15)
         self.loadListBox()
 
         self.select_button = Button(text="choose category", command=self.getSelected)
