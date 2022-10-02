@@ -52,10 +52,6 @@ class Ui:
     def update(self):
         self.feedback()
         self.question.after(1000,self.backToDefaultColor)
-        if self.quiz.is_empty:
-            self.false_button.config(state="disabled")
-            self.true_button.config(state="disabled")
-            self.question.config(text="End of questions")
 
     def feedback(self):
         if self.score_holder == self.quiz.score:
@@ -71,6 +67,10 @@ class Ui:
         self.question.config(bg="#b5e0f0")
         self.question.config(text=f"{html.unescape(self.quiz.question)}")
         self.score_counter.config(text=f"score: {self.quiz.score}/10")
+        if self.quiz.is_empty:
+            self.false_button.config(state="disabled")
+            self.true_button.config(state="disabled")
+            self.question.config(text="End of questions")
 
 
     def loadListBox(self):
