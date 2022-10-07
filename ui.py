@@ -3,8 +3,8 @@ from tkinter import *
 import html
 
 CATEGORIES = {"general knowledge" : 0, "film" : 2, "music" : 3, "television" : 5, "videogames" : 6, "science & nature" : 8,
-                "IT" : 9, "mythology" : 10, "sports" : 11, "geography" : 12, "politics" : 13, "art" : 14,
-              "celebrities" : 15, "comics" : 18, "gadgets" : 19}
+                "IT" : 9, "mythology" : 11, "sports" : 12, "geography" : 13, "politics" : 14, "art" : 15,
+              "celebrities" : 16, "comics" : 19, "gadgets" : 20}
 
 class Ui:
     def __init__(self):
